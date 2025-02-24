@@ -1,5 +1,5 @@
 import ToolCard from "@/components/card/tool-card";
-import { ListTodo, Shapes } from "lucide-react";
+import { Hash, ListTodo, LockKeyhole, Shapes } from "lucide-react";
 import React from "react";
 
 export default function ToolList() {
@@ -10,6 +10,12 @@ export default function ToolList() {
         href="/todolist"
         title="Todo list"
         description="A simple todo list with local storage."
+      ></ToolCard>
+      <ToolCard
+        icon={<LockKeyhole />}
+        href="/random-password"
+        title="Random password"
+        description="Generate a random password."
       ></ToolCard>
     </div>
   );
