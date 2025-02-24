@@ -17,20 +17,32 @@ type AddElementProps = {
 
 export default function AddElement({ onAdd }: AddElementProps) {
   const [todo, setTodo] = useState<Todo>({
+    id: 0,
     description: "",
     priority: "low",
     isDone: false,
   });
+
+  const handleAdd = () => {
+    onAdd(todo);
+    setTodo({
+      id: Math.floor(Math.random() * 1000000),
+      description: "",
+      priority: "low",
+      isDone: false,
+    });
+  };
+
   return (
     <>
       <div className="flex flex-col md:flex-row gap-4">
         <div className="flex gap-4">
           <Input
             type="text"
+            value={todo.description}
             placeholder="Add a todo"
             onChange={(e) => setTodo({ ...todo, description: e.target.value })}
           />
-          <DateInput />
         </div>
         <div className="flex gap-4">
           <Select
@@ -45,7 +57,7 @@ export default function AddElement({ onAdd }: AddElementProps) {
               <SelectItem value="high">High</SelectItem>
             </SelectContent>
           </Select>
-          <Button onClick={() => onAdd(todo)}>Add</Button>
+          <Button onClick={handleAdd}>Add</Button>
         </div>
       </div>
     </>

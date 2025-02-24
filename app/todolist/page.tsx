@@ -2,15 +2,10 @@
 
 import AddElement from "@/partial/todolist/add-element";
 import Todo from "@/partial/todolist/todo";
-import { Todo as TodoType } from "@/type/Todo";
-import { useState } from "react";
+import { useTodoListStore } from "@/store/todo-list-store";
 
 export default function Todolist() {
-  const [todos, setTodos] = useState<TodoType[]>([]);
-
-  const addTodo = (todo: TodoType) => {
-    setTodos([...todos, todo]);
-  };
+  const { todos, addTodo, removeTodo, checkTodo } = useTodoListStore();
 
   return (
     <section className="w-full md:w-1/2 mx-auto flex flex-col gap-6">
@@ -21,6 +16,8 @@ export default function Todolist() {
           description={todo.description}
           priority={todo.priority}
           isDone={todo.isDone}
+          onCheck={() => checkTodo(todo.id)}
+          onRemove={() => removeTodo(todo.id)}
         />
       ))}
     </section>
