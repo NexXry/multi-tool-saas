@@ -1,5 +1,5 @@
 import ToolCard from "@/components/card/tool-card";
-import { Hash, ListTodo, LockKeyhole, Shapes } from "lucide-react";
+import { Binary, Hash, ListTodo, LockKeyhole, Shapes } from "lucide-react";
 import React from "react";
 
 export default function ToolList() {
@@ -16,6 +16,12 @@ export default function ToolList() {
         href="/random-password"
         title="Random password"
         description="Generate a random password."
+      ></ToolCard>
+      <ToolCard
+        icon={<Binary />}
+        href="/binary"
+        title="Binary"
+        description="Convert a number into a binary, hexa, octal."
       ></ToolCard>
     </div>
   );
