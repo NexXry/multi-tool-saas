@@ -4,9 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import RandomPassword from "@/partial/radomPassword/random-passowrd";
 import { usePasswordListStore } from "@/store/password-store";
-import { Password } from "@/type/Password";
 import { Trash } from "lucide-react";
-import { useState } from "react";
 import { toast } from "sonner";
 
 export default function RandomPasswordPage() {
