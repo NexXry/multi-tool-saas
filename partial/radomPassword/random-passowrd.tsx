@@ -30,7 +30,6 @@ export default function RandomPassword({ addPassword }: AddPasswordProps) {
 
   const editPassowrd = (password: string) => {
     setPassword(password);
-    addPassword(password);
   };
 
   return (
