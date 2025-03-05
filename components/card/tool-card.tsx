@@ -25,8 +25,13 @@ const ToolCard = ({
   href,
 }: ToolCardProps) => {
   return (
-    <Link className="w-full" href={href}>
-      <Card className={cn("w-full md:max-w-xs shadow-none", className)}>
+    <Link className="w-full md:w-fit" href={href}>
+      <Card
+        className={cn(
+          "w-full md:w-96 md:h-48 md:max-w-xs shadow-none",
+          className
+        )}
+      >
         <CardHeader className="pt-4 pb-4 px-5 flex-row items-center gap-3 font-semibold">
           <div className="h-8 w-8 flex items-center justify-center bg-primary text-primary-foreground rounded-full">
             {icon}

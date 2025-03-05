@@ -1,10 +1,17 @@
 import ToolCard from "@/components/card/tool-card";
-import { Binary, Hash, ListTodo, LockKeyhole, Shapes } from "lucide-react";
+import {
+  Binary,
+  Hash,
+  ListTodo,
+  LockKeyhole,
+  Shapes,
+  Timer,
+} from "lucide-react";
 import React from "react";
 
 export default function ToolList() {
   return (
-    <div className="flex flex-wrap gap-6">
+    <div className="flex flex-row flex-wrap gap-6">
       <ToolCard
         icon={<ListTodo />}
         href="/todolist"
@@ -22,6 +29,12 @@ export default function ToolList() {
         href="/binary"
         title="Binary"
         description="Convert a number into a binary, hexa, octal."
+      ></ToolCard>
+      <ToolCard
+        icon={<Timer />}
+        href="/pomodoro"
+        title="Pomodoro"
+        description="A pomodoro timer."
       ></ToolCard>
     </div>
   );
