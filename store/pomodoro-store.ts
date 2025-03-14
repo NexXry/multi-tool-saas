@@ -11,8 +11,20 @@ export const usePomodoroTimerStore = create<PomodoroTimerState>()(
   persist(
     (set) => ({
       pomodoro: {
-        workTime: { time: "00:05", isStarted: false, isDone: false },
-        breakTime: { time: "00:05", isStarted: false, isDone: false },
+        session: {
+          originalWorkTime: "00:05",
+          originalBreakTime: "00:05",
+        },
+        workTime: {
+          time: "00:05",
+          isStarted: false,
+          isDone: false,
+        },
+        breakTime: {
+          time: "00:05",
+          isStarted: false,
+          isDone: false,
+        },
         currentTab: "work",
       },
       setPomodoro: (state: PomodoroTimer) => set({ pomodoro: state }),

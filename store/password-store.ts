@@ -8,19 +8,12 @@ interface PasswordListState {
   removePassword: (id: string) => void;
 }
 
-export const usePasswordListStore = create<PasswordListState>()(
-  persist(
-    (set) => ({
-      passwords: [],
-      addPassword: (password) =>
-        set((state) => ({ passwords: [...state.passwords, password] })),
-      removePassword: (id) =>
-        set((state) => ({
-          passwords: state.passwords.filter((password) => password.id !== id),
-        })),
-    }),
-    {
-      name: "password-list-store",
-    }
-  )
-);
+export const usePasswordListStore = create<PasswordListState>()((set) => ({
+  passwords: [],
+  addPassword: (password) =>
+    set((state) => ({ passwords: [...state.passwords, password] })),
+  removePassword: (id) =>
+    set((state) => ({
+      passwords: state.passwords.filter((password) => password.id !== id),
+    })),
+}));

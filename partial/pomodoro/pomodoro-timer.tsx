@@ -17,6 +17,7 @@ export default function PomodoroTimer() {
             ...pomodoro,
             workTime: {
               ...pomodoro.workTime,
+              time: pomodoro.session.originalWorkTime,
               isStarted: false,
               isDone: true,
             },
@@ -42,7 +43,7 @@ export default function PomodoroTimer() {
         setPomodoro({
           ...pomodoro,
           workTime: {
-            time: "00:05",
+            time: formatTime(pomodoro.workTime.time),
             isStarted: false,
             isDone: false,
           },
@@ -66,6 +67,7 @@ export default function PomodoroTimer() {
             ...pomodoro,
             breakTime: {
               ...pomodoro.breakTime,
+              time: pomodoro.session.originalBreakTime,
               isStarted: false,
               isDone: true,
             },
@@ -91,7 +93,7 @@ export default function PomodoroTimer() {
         setPomodoro({
           ...pomodoro,
           breakTime: {
-            time: "00:05",
+            time: formatTime(pomodoro.workTime.time),
             isStarted: false,
             isDone: false,
           },
@@ -117,9 +119,9 @@ export default function PomodoroTimer() {
   const toggleWorkTime = () => {
     setPomodoro({
       ...pomodoro,
-      ...pomodoro,
       workTime: {
         ...pomodoro.workTime,
+        time: formatTime(pomodoro.workTime.time),
         isStarted: !pomodoro.workTime.isStarted,
       },
     });
@@ -130,42 +132,47 @@ export default function PomodoroTimer() {
       ...pomodoro,
       breakTime: {
         ...pomodoro.breakTime,
+        time: formatTime(pomodoro.workTime.time),
         isStarted: !pomodoro.breakTime.isStarted,
       },
     });
   };
 
   const formatTime = (time: string): string => {
-    const timePattern = /^(\d{1,2}):(\d{1,2})$/;
-    const match = time.match(timePattern);
-
-    if (match) {
-      const minutes = match[1].padStart(2, "0");
-      const seconds = match[2].padStart(2, "0");
-      return `${minutes}:${seconds}`;
+    if (time.includes(":")) {
+      const parts = time.split(":");
+      const minutes = parts[0] ? parts[0].trim() : "0";
+      const seconds = parts[1] ? parts[1].trim() : "0";
+      return `${minutes.padStart(2, "0")}:${seconds.padStart(2, "0")}`;
+    } else {
+      const minutes = time.trim();
+      return `${minutes.padStart(2, "0")}:00`;
     }
-
-    return "00:00";
   };
 
   const handleWorkTime = (time: string) => {
-    const formattedTime = formatTime(time);
-    console.log(formattedTime);
-
     setPomodoro({
       ...pomodoro,
+      session: {
+        ...pomodoro.session,
+        originalWorkTime: time,
+      },
       workTime: {
         ...pomodoro.workTime,
-        time: formattedTime,
+        time: time,
       },
     });
   };
   const handleBreakTime = (time: string) => {
     setPomodoro({
       ...pomodoro,
+      session: {
+        ...pomodoro.session,
+        originalBreakTime: time,
+      },
       breakTime: {
         ...pomodoro.breakTime,
-        time: formatTime(time),
+        time: time,
       },
     });
   };

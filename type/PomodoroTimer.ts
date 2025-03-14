@@ -1,4 +1,8 @@
 export type PomodoroTimer = {
+  session: {
+    originalWorkTime: string;
+    originalBreakTime: string;
+  };
   workTime: {
     time: string;
     isStarted: boolean;
