@@ -11,7 +11,7 @@ export default function PrettierJson() {
       const formatted = JSON.stringify(parsed, null, 2);
       setJson(formatted);
     } catch (error) {
-      setJson("");
+      setJson(jsonString);
     }
   };
 
