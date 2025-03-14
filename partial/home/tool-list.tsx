@@ -1,6 +1,7 @@
 import ToolCard from "@/components/card/tool-card";
 import {
   Binary,
+  FileJson,
   Hash,
   ListTodo,
   LockKeyhole,
@@ -35,6 +36,12 @@ export default function ToolList() {
         href="/pomodoro"
         title="Pomodoro"
         description="A pomodoro timer."
+      ></ToolCard>
+      <ToolCard
+        icon={<FileJson />}
+        href="/prettier"
+        title="Json prettier"
+        description="A simple json prettier."
       ></ToolCard>
     </div>
   );
