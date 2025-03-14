@@ -27,6 +27,8 @@ export default function PomodoroTimer() {
             },
             currentTab: "break",
           });
+
+          new Audio("/beep.mp3").play();
           return;
         }
 
@@ -77,6 +79,7 @@ export default function PomodoroTimer() {
             },
             currentTab: "work",
           });
+          new Audio("/beep.mp3").play();
           return;
         }
 
