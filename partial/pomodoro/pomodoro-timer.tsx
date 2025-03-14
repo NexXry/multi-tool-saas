@@ -17,7 +17,7 @@ export default function PomodoroTimer() {
             ...pomodoro,
             workTime: {
               ...pomodoro.workTime,
-              time: pomodoro.session.originalWorkTime,
+              time: formatTime(pomodoro.session.originalWorkTime),
               isStarted: false,
               isDone: true,
             },
@@ -45,7 +45,8 @@ export default function PomodoroTimer() {
         setPomodoro({
           ...pomodoro,
           workTime: {
-            time: formatTime(pomodoro.workTime.time),
+            ...pomodoro.workTime,
+            time: formatTime(pomodoro.session.originalWorkTime),
             isStarted: false,
             isDone: false,
           },
@@ -69,7 +70,7 @@ export default function PomodoroTimer() {
             ...pomodoro,
             breakTime: {
               ...pomodoro.breakTime,
-              time: pomodoro.session.originalBreakTime,
+              time: formatTime(pomodoro.session.originalBreakTime),
               isStarted: false,
               isDone: true,
             },
@@ -96,7 +97,8 @@ export default function PomodoroTimer() {
         setPomodoro({
           ...pomodoro,
           breakTime: {
-            time: formatTime(pomodoro.workTime.time),
+            ...pomodoro.breakTime,
+            time: formatTime(pomodoro.session.originalBreakTime),
             isStarted: false,
             isDone: false,
           },
@@ -113,10 +115,24 @@ export default function PomodoroTimer() {
   }, [pomodoro.breakTime]);
 
   const decrementTime = (time: string) => {
-    const [minutes, seconds] = time.split(":");
-    const newSeconds = parseInt(seconds) > 0 ? parseInt(seconds) - 1 : 59;
-    const newMinutes = newSeconds === 59 ? parseInt(minutes) - 1 : minutes;
-    return `${newMinutes}:${newSeconds.toString().padStart(2, "0")}`;
+    const [minutes, seconds] = time.split(":").map((num) => parseInt(num, 10));
+
+    let newSeconds = seconds - 1;
+    let newMinutes = minutes;
+
+    if (newSeconds < 0) {
+      newSeconds = 59;
+      newMinutes = minutes - 1;
+    }
+
+    if (newMinutes < 0) {
+      newMinutes = 0;
+      newSeconds = 0;
+    }
+
+    return `${String(newMinutes).padStart(2, "0")}:${String(
+      newSeconds
+    ).padStart(2, "0")}`;
   };
 
   const toggleWorkTime = () => {
