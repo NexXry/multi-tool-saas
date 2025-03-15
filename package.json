@@ -20,15 +20,19 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
+    "express": "^4.21.2",
     "lucide-react": "^0.475.0",
     "next": "15.2.0-canary.69",
     "next-themes": "^0.4.4",
     "react": "^19.0.0",
     "react-day-picker": "^8.10.1",
     "react-dom": "^19.0.0",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
     "sonner": "^2.0.1",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
+    "tiktok-live-connector": "^1.2.3",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
@@ -37,9 +41,14 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.1",
     "eslint": "^9",
     "eslint-config-next": "15.2.0-canary.69",
+    "raw-loader": "^4.0.2",
+    "stream-browserify": "^3.0.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "util": "^0.12.5"
   }
 }
