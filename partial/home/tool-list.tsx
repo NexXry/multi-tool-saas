@@ -5,6 +5,7 @@ import {
   Hash,
   ListTodo,
   LockKeyhole,
+  PiIcon,
   Shapes,
   Timer,
 } from "lucide-react";
@@ -42,6 +43,12 @@ export default function ToolList() {
         href="/prettier"
         title="Json prettier"
         description="A simple json prettier."
+      ></ToolCard>
+      <ToolCard
+        icon={<PiIcon />}
+        href="/random-number"
+        title="Random number"
+        description="Generate a random number."
       ></ToolCard>
     </div>
   );
