@@ -3,6 +3,7 @@ import {
   Binary,
   FileJson,
   Hash,
+  HashIcon,
   ListTodo,
   LockKeyhole,
   PiIcon,
@@ -49,6 +50,12 @@ export default function ToolList() {
         href="/random-number"
         title="Random number"
         description="Generate a random number."
+      ></ToolCard>
+      <ToolCard
+        icon={<HashIcon />}
+        href="/hash"
+        title="Hash SHA256 - MD5"
+        description="Generate a hash SH256 - MD5."
       ></ToolCard>
     </div>
   );
