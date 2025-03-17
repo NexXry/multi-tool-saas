@@ -9,6 +9,8 @@ import {
   PiIcon,
   Shapes,
   Timer,
+  Weight,
+  WholeWord,
 } from "lucide-react";
 import React from "react";
 
@@ -56,6 +58,12 @@ export default function ToolList() {
         href="/hash"
         title="Hash SHA256 - MD5"
         description="Generate a hash SH256 - MD5."
+      ></ToolCard>
+      <ToolCard
+        icon={<Weight />}
+        href="/metrics"
+        title="Metrics"
+        description="A metrics tool to convert weight, speed, distance, temperature, money."
       ></ToolCard>
     </div>
   );
