@@ -9,6 +9,7 @@ import {
   PiIcon,
   Shapes,
   Timer,
+  Users,
   Weight,
   WholeWord,
 } from "lucide-react";
@@ -64,6 +65,12 @@ export default function ToolList() {
         href="/metrics"
         title="Metrics"
         description="A metrics tool to convert weight, speed, distance, temperature, money."
+      ></ToolCard>
+      <ToolCard
+        icon={<Users />}
+        href="/splitter"
+        title="Splitter"
+        description="Choose who you want to be in group with for the exercise."
       ></ToolCard>
     </div>
   );

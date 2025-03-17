@@ -1,11 +1,11 @@
 "use client";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Weight from "./tabs/weight";
-import Speed from "./tabs/speed";
-import Distance from "./tabs/distance";
-import Temperature from "./tabs/temperature";
-import Money from "./tabs/money";
+import Weight from "@/partial/metrics/tabs/weight";
+import Speed from "@/partial/metrics/tabs/speed";
+import Distance from "@/partial/metrics/tabs/distance";
+import Temperature from "@/partial/metrics/tabs/temperature";
+import Money from "@/partial/metrics/tabs/money";
 
 export default function Metrics() {
   return (
