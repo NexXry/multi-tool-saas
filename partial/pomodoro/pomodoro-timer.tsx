@@ -210,9 +210,9 @@ export default function PomodoroTimer() {
         <Tabs
           value={pomodoro.currentTab}
           onValueChange={(value) => handleTabChange(value as "work" | "break")}
-          className="w-[400px]"
+          className="w-full"
         >
-          <TabsList>
+          <TabsList className="w-full min-w-[400px]">
             <TabsTrigger value="work">Work Time</TabsTrigger>
             <TabsTrigger value="break">Short Break Time</TabsTrigger>
           </TabsList>
@@ -222,7 +222,7 @@ export default function PomodoroTimer() {
           >
             <Input
               type="text"
-              className="w-full h-24 text-center text-6xl"
+              className="w-full h-24 text-center md:text-5xl text-6xl"
               value={pomodoro.workTime.time}
               onChange={(e) => handleWorkTime(e.target.value)}
             />
@@ -231,12 +231,12 @@ export default function PomodoroTimer() {
             </Button>
           </TabsContent>
           <TabsContent
-            className="flex flex-col justify-center gap-2"
+            className="flex flex-col justify-center gap-2 w-full"
             value="break"
           >
             <Input
               type="text"
-              className="w-96 h-24 text-center text-6xl"
+              className="w-full h-24 text-center md:text-5xl text-6xl"
               value={pomodoro.breakTime.time}
               onChange={(e) => handleBreakTime(e.target.value)}
             />

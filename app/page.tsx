@@ -2,13 +2,14 @@
 
 import SearchBar from "@/partial/home/search-bar";
 import ToolList from "@/partial/home/tool-list";
-import TiktokConnector from "@/partial/tiktok/tiktok-connector";
+import { useState } from "react";
 
 export default function Home() {
+  const [query, setQuery] = useState("");
   return (
     <section className="flex flex-col gap-6">
-      <SearchBar />
-      <ToolList />
+      <SearchBar setQuery={setQuery} />
+      <ToolList query={query} />
     </section>
   );
 }

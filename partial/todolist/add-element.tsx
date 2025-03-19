@@ -35,8 +35,8 @@ export default function AddElement({ onAdd }: AddElementProps) {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row gap-4">
-        <div className="flex gap-4">
+      <div className="flex flex-col justify-between md:flex-row gap-4">
+        <div className="flex flex-1 gap-4">
           <Input
             type="text"
             value={todo.description}

@@ -10,7 +10,6 @@ export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const username = searchParams.get("username");
   const action = searchParams.get("action") || "status";
-  console.log(`Action: ${action} for username: ${username}`);
 
   if (!username) {
     return NextResponse.json(
@@ -67,7 +66,6 @@ export async function GET(request) {
       });
 
       connections[user].on("roomUser", (data) => {
-        console.log(`Received roomUser event for ${user}:`, data);
         statsData[user] = {
           viewerCount: data.viewerCount || 0,
           likeCount: data.likeCount || 0,
@@ -77,9 +75,7 @@ export async function GET(request) {
       });
 
       // Connect to TikTok
-      console.log(`Connecting to TikTok for ${user}...`);
       const state = await connections[user].connect();
-      console.log(`Connected to TikTok for ${user}, roomId: ${state.roomId}`);
 
       return state;
     }
@@ -91,7 +87,6 @@ export async function GET(request) {
   if (action === "connect") {
     try {
       if (connections[username]) {
-        console.log(`Disconnecting existing connection for ${username}`);
         await connections[username].disconnect();
         delete connections[username];
       }
@@ -149,7 +144,6 @@ export async function GET(request) {
       if (!connections[username]) {
         try {
           await createConnection(username);
-          console.log(`Connection created for ${username} in statistic action`);
         } catch (error) {
           console.error(
             `Failed to create connection for ${username} in statistic action:`,

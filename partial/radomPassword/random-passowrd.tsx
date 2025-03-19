@@ -33,15 +33,15 @@ export default function RandomPassword({ addPassword }: AddPasswordProps) {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-4">
+    <div className="flex flex-col items-center gap-4">
       <Input
         type="text"
         value={password}
         onChange={(e) => editPassowrd(e.target.value)}
       />
-      <div className="flex  justify-between items-center gap-4">
+      <div className="flex justify-between w-full items-center gap-4">
         <Input
-          className="w-32"
+          className="w-32 flex-1"
           type="number"
           value={length}
           onChange={(e) => setLength(Number(e.target.value))}

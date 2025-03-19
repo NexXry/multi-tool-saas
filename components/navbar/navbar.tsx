@@ -3,7 +3,7 @@ import { DarkMode } from "../dark-mode";
 import { Logo } from "./logo";
 import { NavMenu } from "./nav-menu";
 import { NavigationSheet } from "./navigation-sheet";
-import { SunIcon } from "lucide-react";
+import { SunIcon, User } from "lucide-react";
 import TiktokConnector from "@/partial/tiktok/tiktok-connector";
 
 const Navbar = () => {
@@ -16,6 +16,9 @@ const Navbar = () => {
           </Link>
           <TiktokConnector />
           <div className="flex items-center gap-3">
+            <Link href="/auth" className="flex items-center gap-8">
+              <User />
+            </Link>
             <DarkMode />
           </div>
         </div>
