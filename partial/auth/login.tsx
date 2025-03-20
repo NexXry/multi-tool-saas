@@ -11,8 +11,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useAuthStore } from "@/store/auth-store";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 const formSchema = z.object({
@@ -21,6 +24,9 @@ const formSchema = z.object({
 });
 
 const Login = () => {
+  const router = useRouter();
+  const { setAuth } = useAuthStore();
+
   const form = useForm<z.infer<typeof formSchema>>({
     defaultValues: {
       email: "",
@@ -30,7 +36,16 @@ const Login = () => {
   });
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    await login(data);
+    const response: { success: boolean; token?: string } = await login(data);
+    if (!response.success) {
+      toast.error("Wrong credentials");
+      return;
+    }
+
+    setAuth(response.token ?? "", data.email);
+    toast.success("Login successful");
+    form.reset();
+    router.push("/feedback");
   };
 
   return (

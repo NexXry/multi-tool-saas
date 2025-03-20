@@ -21,8 +21,7 @@ export const tools = mysqlTable("Tool", {
 
 export const feedbacks = mysqlTable("FeedBack", {
   id: serial("id").primaryKey(),
-  title: varchar({ length: 255 }).notNull(),
-  content: text("content").notNull(),
+  message: text("message").notNull(),
   createdAt: datetime("createdAt").default(new Date()).notNull(),
   userId: int("userId")
     .notNull()

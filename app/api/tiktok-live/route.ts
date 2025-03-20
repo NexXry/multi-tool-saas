@@ -109,7 +109,7 @@ export async function GET(request) {
           error: error.message,
           details: "Failed to connect to TikTok Live stream",
         },
-        { status: 500 }
+        { status: 400 }
       );
     }
   }
