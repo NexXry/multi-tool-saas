@@ -34,3 +34,13 @@ export async function createFeedback({
 
   return { success: true };
 }
+
+export async function deleteFeedback(id: number) {
+  try {
+    await db.delete(feedbacks).where(eq(feedbacks.id, id));
+  } catch (error) {
+    return { success: false };
+  }
+
+  return { success: true };
+}
