@@ -30,7 +30,7 @@ const ToolCard = ({
     <Link className="w-full md:w-fit perspective-1000" href={href}>
       <Card
         className={cn(
-          "w-full md:w-96 md:h-52 group relative overflow-hidden transition-all duration-300 hover:shadow-lg border border-border/40 hover:border-primary/30 backdrop-blur-sm hover:backdrop-blur-0 hover:translate-y-1 hover:scale-102",
+          "w-full md:w-96 md:h-52 group relative overflow-hidden transition-all duration-300 hover:shadow-lg border border-primary/05 hover:border-primary/30 backdrop-blur-sm hover:backdrop-blur-0 hover:translate-y-1 hover:scale-102",
           className
         )}
       >
