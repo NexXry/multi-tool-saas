@@ -16,7 +16,7 @@ export default function PrettierJson() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center md:flex-row gap-4 w-full">
+    <div className="flex flex-col justify-center items-center gap-4 w-full">
       <h1 className="text-2xl">Json prettier</h1>
       <div className="w-full">
         <Textarea
