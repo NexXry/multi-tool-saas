@@ -72,7 +72,8 @@ export default function BinaryHexOctal() {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row gap-4 w-full">
+      <div className="flex flex-col gap-4 w-full">
+        <h1 className="text-2xl text-center">Binary Hex Octal</h1>
         <div className="flex flex-col gap-4 w-full">
           <Input
             type="text"

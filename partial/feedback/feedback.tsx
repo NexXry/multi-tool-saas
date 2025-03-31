@@ -25,7 +25,7 @@ function Feedback() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="w-full md:w-10/12 mx-auto flex flex-col gap-6">
-        <FeedbackForm />
+        {token && <FeedbackForm />}
         <FeedbackList />
       </div>
     </QueryClientProvider>

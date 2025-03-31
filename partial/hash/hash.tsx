@@ -25,10 +25,10 @@ export default function Hash() {
   };
 
   return (
-    <>
+    <div className="flex flex-col gap-4 w-full">
       <h1 className="text-2xl font-bold text-center">Generated hash</h1>
       <div className="flex flex-col md:flex-row gap-4">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 w-full">
           <Input
             type="text"
             defaultValue={""}
@@ -47,6 +47,6 @@ export default function Hash() {
         </div>
         <div className="flex gap-4"></div>
       </div>
-    </>
+    </div>
   );
 }
