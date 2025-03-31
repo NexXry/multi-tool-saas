@@ -11,6 +11,7 @@ export async function register(z: z.infer<typeof registerSchema>) {
   try {
     await db.insert(users).values({ email: result.email, password: hash });
   } catch (error) {
+    console.log(error.message);
     return { success: false, error };
   }
 
